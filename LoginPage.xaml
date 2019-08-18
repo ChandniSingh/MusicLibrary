@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="MusicApp.LoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MusicApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+
+        <StackPanel Orientation="Vertical" Margin="150,150,0,0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="UserName" Width="150" Height="40" />
+                <TextBox Name="username"  Height="30" Width="40"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Password" Width="150" Height="40"/>
+                <TextBox Name="password"  Height="30" Width="40"/>
+            </StackPanel>
+            <Button Content="Login" Click="Button_Click"/>
+
+
+        </StackPanel>
+
+    </Grid>
+</Page>

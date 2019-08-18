@@ -1,16 +1,17 @@
 ﻿<Page
-    x:Class="MusicApp.MainPage"
+    x:Class="MusicApp.Media"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:MusicApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="994.257">
 
     <Grid>
 
-        <Button Content="Add Music" Click="Button_Click"/>
-        <Button Content="Play" Click="Play_Click" Margin="619,778,0,0" VerticalAlignment="Top"/>
+        <MediaPlayerElement x:Name="mediaPlayer"
+              AreTransportControlsEnabled="True" Margin="0,0,0,58" />
+        <Button Content="Back" Height="0" Margin="1116,917,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>
