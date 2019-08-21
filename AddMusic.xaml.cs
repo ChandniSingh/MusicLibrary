@@ -27,17 +27,10 @@ namespace MusicApp
             this.InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            var album = new Music
-            {
-                Title = titlename.Text,
-                Genre = genrename.Text
-
-            };
-
-            Music.WriteMusic(album);
-
+            await Library.AddAlbum(titlename.Text);
+            this.Frame.Navigate(typeof(MainPage));
         }
     }
 }

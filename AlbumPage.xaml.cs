@@ -26,5 +26,7 @@ namespace MusicApp
         {
             this.InitializeComponent();
         }
+
+        // TASK - Add a button to save the album and call Library.AddAlbum from there
     }
 }

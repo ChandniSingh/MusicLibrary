@@ -9,6 +9,16 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        
+        <GridView Name="Albums" ItemsSource="{Binding}" Height="300" Width="400" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="local:Album">
+                    <StackPanel Orientation="Horizontal" Margin="2">
+                        <TextBlock Text="{x:Bind AlbumName}" Width="100" ></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
 
         <Button Content="Add Music" Click="Button_Click"/>
         <Button Content="Play" Click="Play_Click" Margin="619,778,0,0" VerticalAlignment="Top"/>

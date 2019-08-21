@@ -25,7 +25,6 @@ namespace MusicApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        
 
         public MainPage()
         {
@@ -39,7 +38,14 @@ namespace MusicApp
 
         private void Play_Click(object sender, RoutedEventArgs e)
         {
+            // TASK - Think of the right place to do this
             this.Frame.Navigate(typeof(Media));
+        }
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            this.DataContext = await Library.GetAllAlbums();
         }
     }
 }

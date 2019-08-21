@@ -13,11 +13,11 @@ namespace MusicApp
         public String Genre { get; set; }
 
 
-        public static void WriteMusic(Music music)
+        public async static void WriteMusic(Music music)
         {
             var MusicData = $"{music.Title}, {music.Genre}";
 
-            FileHelper.WriteTextFile(TEXT_FILE_NAME, MusicData);
+            await FileHelper.WriteTextFileAsync(TEXT_FILE_NAME, MusicData);
 
         }
 

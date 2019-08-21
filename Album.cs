@@ -17,8 +17,6 @@ namespace MusicApp
         public string AlbumName { get; set; }
         public List<Song> Songs { get; set; }
 
-        
-
         public  void AddSong(string name)
         {
             var s1 = new Song
@@ -40,6 +38,11 @@ namespace MusicApp
         {
            return  Songs.SingleOrDefault(s => s.SongId == id);
            
+        }
+
+        public override string ToString()
+        {
+            return $"{this.AlbumId},{this.AlbumName}";
         }
     }
 }
