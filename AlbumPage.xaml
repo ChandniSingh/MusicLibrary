@@ -12,16 +12,17 @@
         <StackPanel Orientation="Vertical" Margin="150,150,0,0">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Album Name" Width="150" Height="40" />
-                <TextBox Name="AlbumName"  Height="30" Width="40"/>
+                <TextBlock Name="AlbumName"  Height="30" Width="325"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Song Name" Width="150" Height="40"/>
-                <TextBox Name="Song1"  Height="30" Width="40"/>
+                <TextBlock Name="SongName"  Height="30" Width="309"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Artist" Width="150" Height="40"/>
-                <TextBox Name="ArtistName"  Height="30" Width="40"/>
+                <TextBlock Name="ArtistName"  Height="30" Width="314"/>
             </StackPanel>
+            <Button Content="Back" Click="Button_Click"/>
         </StackPanel>
         
         

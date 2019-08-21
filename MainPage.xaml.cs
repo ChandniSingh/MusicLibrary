@@ -47,5 +47,15 @@ namespace MusicApp
             base.OnNavigatedTo(e);
             this.DataContext = await Library.GetAllAlbums();
         }
+
+        private void Open_Album(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Albums_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(AlbumPage), this.Albums.SelectedValue);
+        }
     }
 }

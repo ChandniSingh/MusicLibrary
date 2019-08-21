@@ -8,13 +8,14 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid><Image Source="uri" />
         
-        <GridView Name="Albums" ItemsSource="{Binding}" Height="300" Width="400" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <GridView Name="Albums" ItemsSource="{Binding}" Height="300" Width="400" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="Albums_SelectionChanged">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="local:Album">
                     <StackPanel Orientation="Horizontal" Margin="2">
-                        <TextBlock Text="{x:Bind AlbumName}" Width="100" ></TextBlock>
+                        <TextBlock Text="{x:Bind AlbumName}" Width="400">
+                        </TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </GridView.ItemTemplate>
@@ -22,5 +23,6 @@
 
         <Button Content="Add Music" Click="Button_Click"/>
         <Button Content="Play" Click="Play_Click" Margin="619,778,0,0" VerticalAlignment="Top"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="490,698,0,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Page>

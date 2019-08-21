@@ -28,5 +28,17 @@ namespace MusicApp
         }
 
         // TASK - Add a button to save the album and call Library.AddAlbum from there
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            var selectedAlbum = (Album) e.Parameter;
+            this.AlbumName.Text = selectedAlbum.AlbumName;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
+        }
     }
 }
