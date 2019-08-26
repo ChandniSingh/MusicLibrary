@@ -10,24 +10,21 @@
     <Grid>
         <StackPanel Orientation="Vertical" Margin="150,150,0,0">
             <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Title" Width="60" Height="30"   Margin="0,0,10,0"/>
-
-                <TextBox Name="titlename" Height="35" Width="100"/>
-                <StackPanel Orientation="Vertical" Margin="150,150,0,0">
-                </StackPanel>
+                <TextBlock Text="Title" Width="130" Height="30"   Margin="0,0,10,0"/>
+                <TextBox Name="titlename" Height="35" Width="440"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-
-                        <TextBlock Text="Genre" Width="60" Height="30"   Margin="0,0,10,0"/>
-
-                <TextBox Name="genrename" Height="35" Width="100"/>
-                    
-
+                <TextBlock Text="Artist" Width="130" Height="30"   Margin="0,0,10,0"/>
+                <TextBox Name="Artist" Height="35" Width="445"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Thumbnail" Width="130" Height="30"   Margin="0,0,10,0"/>
+                <TextBox Name="Thumbnail" Height="35" Width="445"/>
+                <Button Content="Choose" Click="Button_Click_1"/>
             </StackPanel>
         </StackPanel>
-        <Button Content="Save" Click ="Button_Click"  Margin="253,395,0,0" VerticalAlignment="Top"/>
-
-
-
+        <Button Content="Save" Click ="Button_Click"  Margin="685,320,0,0" VerticalAlignment="Top"/>
+        <Button Content="Cancel" Click ="Cancel_Click"  Margin="765,320,0,0" VerticalAlignment="Top"/>
     </Grid>
+    
 </Page>

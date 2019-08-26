@@ -8,21 +8,20 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid><Image Source="uri" />
-        
-        <GridView Name="Albums" ItemsSource="{Binding}" Height="300" Width="400" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="Albums_SelectionChanged">
+    <Grid>
+        <Image Source="uri" />
+
+        <GridView Name="Albums" ItemsSource="{Binding}" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="Albums_SelectionChanged" Margin="75,185,132,159">
             <GridView.ItemTemplate>
-                <DataTemplate x:DataType="local:Album">
-                    <StackPanel Orientation="Horizontal" Margin="2">
-                        <TextBlock Text="{x:Bind AlbumName}" Width="400">
-                        </TextBlock>
+                <DataTemplate x:DataType="local:Music">
+                    <StackPanel Orientation="Vertical" Margin="10" Width="150" Height="250" HorizontalAlignment="Center">
+                        <Image Source="{x:Bind Thumbnail}"  Width="150" Height="Auto" VerticalAlignment="Top" HorizontalAlignment="Center"></Image>
+                        <TextBlock Text="{x:Bind Title}" Margin="10" Width="150" Height="Auto" VerticalAlignment="Bottom" HorizontalAlignment="Left" TextWrapping="WrapWholeWords"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
-
-        <Button Content="Add Music" Click="Button_Click"/>
-        <Button Content="Play" Click="Play_Click" Margin="619,778,0,0" VerticalAlignment="Top"/>
-        <Image HorizontalAlignment="Left" Height="100" Margin="490,698,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button Visibility="Collapsed" Content="Play" Click="Play_Click" Margin="1124,914,100,100" VerticalAlignment="Top"/>
+        <Button Content="Add Music" Click="Button_Click" VerticalAlignment="Bottom" Margin="100" HorizontalAlignment="Right"/>
     </Grid>
 </Page>

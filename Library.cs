@@ -6,40 +6,45 @@ using System.Threading.Tasks;
 
 namespace MusicApp
 {
-  class Library
+    class Library
     {
         static int lastAlbumId = 0;
 
         static bool initialized = false;
         
-        private static List<Album> AllAlbums = new List<Album>();
+        private static List<Music> AllMusic = new List<Music>();
 
-        public async static Task AddAlbum(string albumname)
+        // TASK - Fetch artist name and thumbnail from the UI and store in the Album object
+        public async static Task AddAlbum(string albumname, string thumbnail)
         {
-            var album = new Album();
-            album.AlbumName = albumname;
-            album.AlbumId = lastAlbumId;
+            var album = new Music
+            {
+                Title = albumname,
+                MusicId = lastAlbumId,
+                Thumbnail = thumbnail
+            };
 
             lastAlbumId++;
 
             await FileHelper.WriteTextFileAsync("albums.txt", album.ToString());
 
-            AllAlbums.Add(album);
+            AllMusic.Add(album);
         }
 
-        public async static Task<IEnumerable<Album>> GetAllAlbums()
+        public async static Task<IEnumerable<Music>> GetAllMusic()
         {
             // Load from file
             if (!initialized)
             {
                 // Read file
-                await LoadAlbumsFromFileAsync();
+                await LoadMusicFromFileAsync();
                 initialized = true;
             }
 
-            return AllAlbums;
+            return AllMusic;
         }
-        public async static Task<ICollection<Album>> LoadAlbumsFromFileAsync()
+
+        public async static Task<ICollection<Music>> LoadMusicFromFileAsync()
         {
             var content = await FileHelper.ReadTextFileAsync("albums.txt");
             var lines = content.Split('\r', '\n');
@@ -48,25 +53,25 @@ namespace MusicApp
                 if (string.IsNullOrEmpty(line))
                     continue;
                 var lineParts = line.Split(',');
-                var album = new Album
+                var album = new Music
                 {
-                    AlbumId = Convert.ToInt32(lineParts[0]),
-                    AlbumName = lineParts[1]
+                    MusicId = Convert.ToInt32(lineParts[0]),
+                    Title = lineParts[1],
+                    Thumbnail=lineParts[2]
                 };
                
-                AllAlbums.Add(album);
+                AllMusic.Add(album);
 
-                lastAlbumId = Math.Max(lastAlbumId, album.AlbumId + 1);
+                lastAlbumId = Math.Max(lastAlbumId, album.MusicId + 1);
             }
 
-            return AllAlbums;
+            return AllMusic;
         }
 
-        public Album GetAlbum(int id)
+        public Music GetMusic(int id)
         {
-            var album = AllAlbums.SingleOrDefault(s => s.AlbumId == id);
+            var album = AllMusic.SingleOrDefault(s => s.MusicId == id);
             return album;
         }
-
     }
 }

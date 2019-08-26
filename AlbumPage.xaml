@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <StackPanel Orientation="Vertical" Margin="150,150,0,0">
+        <StackPanel Orientation="Vertical" Margin="85,65,135,376">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Album Name" Width="150" Height="40" />
                 <TextBlock Name="AlbumName"  Height="30" Width="325"/>
@@ -20,14 +20,36 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Artist" Width="150" Height="40"/>
-                <TextBlock Name="ArtistName"  Height="30" Width="314"/>
+                <TextBlock x:Name="ArtistName"  Height="30" Width="314"/>
             </StackPanel>
-            <Button Content="Back" Click="Button_Click"/>
+            <StackPanel Orientation="Horizontal"/>
+
         </StackPanel>
-        
-        
+
+        <Button Content="Add Song" Margin="1140,733,0,0" VerticalAlignment="Top" Height="34" Click="AddSong_Click"/>
+        <Button Content="Back" Click="Button_Click" Margin="1254,733,0,0" VerticalAlignment="Top"/>
 
 
+        <Popup VerticalOffset="500" HorizontalOffset="500" x:Name="AddSongPopUp">
+            <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
+                Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
+                BorderThickness="2" Width="500" Height="300">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel Orientation="Vertical" Margin="10,10,0,0">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Name" Width="130" Height="30"   Margin="0,0,10,0"/>
+                            <TextBox Name="AddSongName" Height="35" Width="200"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Location" Width="130" Height="30"   Margin="0,0,10,0"/>
+                            <TextBox Name="AddSongLocation" Height="35" Width="200"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <Button Content="Save" Click="SavePopupClicked" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                    <Button Content="Cancel" Click="ClosePopupClicked" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                </StackPanel>
+            </Border>
+        </Popup>
 
     </Grid>
 </Page>

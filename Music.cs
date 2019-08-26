@@ -8,18 +8,49 @@ namespace MusicApp
 {
     class Music
     {
-        private const string TEXT_FILE_NAME = "Music.txt";
-        public String Title { get; set; }
-        public String Genre { get; set; }
 
+        static int lastSongId = 0;
+        
+        public int MusicId { get; set; }
 
-        public async static void WriteMusic(Music music)
+        public string Thumbnail { get; set; }
+
+        public string Title { get; set; }
+
+        private List<Song> Songs { get; set; }
+
+        public Music()
         {
-            var MusicData = $"{music.Title}, {music.Genre}";
-
-            await FileHelper.WriteTextFileAsync(TEXT_FILE_NAME, MusicData);
-
+            this.Songs = new List<Song>();
         }
 
+        // TODO : Album should contain Songs
+        public  void AddSong(string name)
+        {
+            var s1 = new Song
+            {
+                SongId = lastSongId,
+                SongName = name
+            };
+
+            Songs.Add(s1);
+            lastSongId++;
+        }
+
+        public IEnumerable<Song> GetAllSongs()
+        {
+            return Songs;
+        }
+
+        public Song GetSong(int id)
+        {
+           return  Songs.SingleOrDefault(s => s.SongId == id);
+           
+        }
+
+        public override string ToString()
+        {
+            return $"{this.MusicId},{this.Title},{this.Thumbnail}";
+        }
     }
 }

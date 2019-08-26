@@ -45,7 +45,7 @@ namespace MusicApp
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            this.DataContext = await Library.GetAllAlbums();
+            this.DataContext = await Library.GetAllMusic();
         }
 
         private void Open_Album(object sender, RoutedEventArgs e)
@@ -55,7 +55,7 @@ namespace MusicApp
 
         private void Albums_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            this.Frame.Navigate(typeof(AlbumPage), this.Albums.SelectedValue);
+            this.Frame.Navigate(typeof(Media), this.Albums.SelectedValue);
         }
     }
 }

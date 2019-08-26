@@ -21,15 +21,6 @@ namespace MusicApp
             m1.Play();
         }
 
-
-
-
-        // StorageFolder f = Windows.ApplicationModel.Package.Current.InstalledLocation;
-        // f = await f.GetFolderAsync("MyFolder");
-        // StorageFile sf = await f.GetFileAsync("MyFile.mp3");
-        //  PlayMusic.SetSource(await sf.OpenAsync(FileAccessMode.Read), sf.ContentType);
-        //     PlayMusic.Play();
-
     }
     
 }

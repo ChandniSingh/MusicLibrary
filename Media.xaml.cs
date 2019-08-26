@@ -24,18 +24,28 @@ namespace MusicApp
     /// </summary>
     public sealed partial class Media : Page
     {
+        private MediaPlayer m1;
+
         public Media()
         {
             this.InitializeComponent();
-            MediaPlayer m1 = new MediaPlayer();
-            m1.Source = MediaSource.CreateFromUri(new System.Uri("ms-appx:///Ssmple1.mp4"));
-
+            m1 = new MediaPlayer();
             mediaPlayer.SetMediaPlayer(m1);
+        }
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            var music = (Music)e.Parameter;
+
+            m1.Source = MediaSource.CreateFromUri(new System.Uri($"ms-appx:///{music.MusicId}.mp3"));
             m1.Play();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            m1.Pause();
             this.Frame.Navigate(typeof(MainPage));
         }
     }
